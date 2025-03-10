@@ -5,17 +5,19 @@ import { vim } from "@replit/codemirror-vim";
 import { EditorView } from "@codemirror/view";
 import { EditorSelection } from "@codemirror/state";
 import { JSX, useEffect, useRef, useState } from 'react';
+import { uploadResult } from "../uploadResult";
 
-export default function VimText({ start, end, startPosition }: { start: string, end: string, startPosition: number }): JSX.Element {
+export default function VimText({ start, end, startPosition, lessonId }: { start: string, end: string, startPosition: number, lessonId: number }): JSX.Element {
     const editorRef = useRef<ReactCodeMirrorRef | null>(null);
     const [solutionFound, setSolutionFound] = useState<boolean>(false);
     const [keystrokes, setKeystrokes] = useState<number>(0);
     const [currentText, setCurrentText] = useState<string>(start + "\n\n\n\n\n");
 
-    const handleChange = (value: string): void => {
+    const handleChange = async (value: string): Promise<void> => {
         setCurrentText(value);
         if (value.trim() === end.trim()) {
             setSolutionFound(true);
+            await uploadResult({ lessonId, score: keystrokes })
         } else if (solutionFound === true) {
             setSolutionFound(false);
         }
@@ -72,7 +74,7 @@ export default function VimText({ start, end, startPosition }: { start: string, 
     return (
         <div className="flex-col">
             <h2 className="text-[#F8F8F2] text-center font-bold">
-                {solutionFound ? "Solution found!" : "Edit the text to be the same as the left"}
+                {solutionFound ? "Solution found!" : "Edit the text to be the same as the right"}
             </h2>
             <p className="text-[#F8F8F2] text-center">Keystrokes: {keystrokes}</p>
             <div className="flex justify-around w-full">
