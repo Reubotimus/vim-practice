@@ -19,7 +19,7 @@ export default async function Page({ params }: { params: { lessonId: string } })
     if (!lessonData) {
         return (
             <div className="w-full h-screen flex flex-col items-center justify-center bg-[#282A36]">
-                "Unable to find lesson"
+                Unable to find lesson
             </div>
         );
     }

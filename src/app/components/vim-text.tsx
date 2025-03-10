@@ -1,6 +1,6 @@
 'use client';
 import { dracula } from "@uiw/codemirror-theme-dracula";
-import CodeMirror, { ViewUpdate, ReactCodeMirrorRef } from '@uiw/react-codemirror';
+import CodeMirror, { ReactCodeMirrorRef } from '@uiw/react-codemirror';
 import { vim } from "@replit/codemirror-vim";
 import { EditorView } from "@codemirror/view";
 import { EditorSelection } from "@codemirror/state";
@@ -12,7 +12,7 @@ export default function VimText({ start, end, startPosition }: { start: string, 
     const [keystrokes, setKeystrokes] = useState<number>(0);
     const [currentText, setCurrentText] = useState<string>(start + "\n\n\n\n\n");
 
-    const handleChange = (value: string, data: ViewUpdate): void => {
+    const handleChange = (value: string): void => {
         setCurrentText(value);
         if (value.trim() === end.trim()) {
             setSolutionFound(true);
@@ -50,11 +50,11 @@ export default function VimText({ start, end, startPosition }: { start: string, 
 
     // Add keystroke counting by attaching a keydown event listener to the editor's DOM element.
     useEffect(() => {
-        let handleKeyDown: (event: KeyboardEvent) => void;
+        let handleKeyDown: () => void;
         const timer = setTimeout(() => {
             const view: EditorView | undefined = editorRef.current?.view;
             if (view) {
-                handleKeyDown = (event: KeyboardEvent) => {
+                handleKeyDown = () => {
                     setKeystrokes(prev => prev + 1);
                 };
                 view.dom.addEventListener("keydown", handleKeyDown, true);

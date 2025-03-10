@@ -1,4 +1,3 @@
-import VimText from "./components/vim-text";
 
 export default function Home() {
   return (
