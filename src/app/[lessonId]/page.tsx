@@ -12,7 +12,7 @@ const getLessonData = async (lessonName: string) => {
     return null;
 };
 
-export default async function Page({ params }: { params: { lessonId: string } }) {
+export default async function Page({ params }: { params: Promise<{ lessonId: string }> }) {
     const { lessonId } = await params;
     const lessonData = await getLessonData(lessonId);
 
