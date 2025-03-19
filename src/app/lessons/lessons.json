@@ -27,7 +27,7 @@
         {
             "lessonName": "Line Navigation: Wrapping html tags",
             "slug": "wrap-tags",
-            "techniqueExplanation": "This lesson demonstrates how to use vim’s navigation commands to quickly edit a line. The '0' command moves the cursor to the beginning of the line so you can remove unwanted indentation, and the '$' command jumps to the end of the line, where you can insert missing characters like the '-' operator. Use these techniques to efficiently navigate between the start and end of the line.",
+            "techniqueExplanation": "This lesson demonstrates how to use vim’s navigation commands to quickly edit a line. The I command moves the cursor to the beginning of the line in insert mode, and the A command jumps to the end of the line in insert mode. Make sure you are in normal mode and pressing shift!",
             "codeInstructions": "Add a <h1> tag for the title and a <p> tag for the paragraph. Then new lines should look like <h1>Title!</h1> and <p>Paragraph!</p>",
             "initialCode": "<div>\n    Title!\n    Paragraph!\n</div>",
             "finalCode": "<div>\n    <h1>Title!</h1>\n    <p>Paragraph!</p>\n</div>"

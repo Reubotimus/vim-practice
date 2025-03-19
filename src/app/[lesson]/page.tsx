@@ -1,11 +1,6 @@
-import fs from "fs";
-import path from "path";
 import VimText from "./vim-text";
 import { auth } from "@clerk/nextjs/server";
 import { getNextLesson, loadLesson } from "../lessonManifest";
-import { db } from "@/db/db";
-import { lessons } from "@/db/schema";
-import { eq } from "drizzle-orm";
 import { getScore } from "../user";
 
 export default async function Page({ params }: { params: Promise<{ lesson: string }> }) {
