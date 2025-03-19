@@ -1,0 +1,68 @@
+{
+    "lessons": [
+        {
+            "lessonName": "Switching to Insert Mode: Insert Missing Comma",
+            "slug": "insert-mode-comma",
+            "techniqueExplanation": "Vim operates using distinct modes. In this lesson, you learn to switch to Insert mode by pressing 'i' and insert a missing comma within a line of code. This technique is ideal for making precise inline corrections without disrupting your workflow.",
+            "codeInstructions": "Place the cursor between the two function parameters. Press 'i' to enter Insert mode, insert a comma between the parameters, and then press Esc to return to Normal mode. Ensure that the updated comma is directly after the a.",
+            "initialCode": "function multiply(a b) { return a * b; }",
+            "finalCode": "function multiply(a, b) { return a * b; }"
+        },
+        {
+            "lessonName": "Appending Text: Insert semi colon after",
+            "slug": "append-semi-colon",
+            "techniqueExplanation": "This lesson explains how Vim's append command ('a') works. When you press 'a', Vim enters insert mode, allowing you to add text immediately after the cursor's current position. This technique is ideal for inserting text after words or lines.",
+            "codeInstructions": "Edit the code by inserting a semi colon at the end of the line",
+            "initialCode": "fmt.Println(\"Hello, World\")",
+            "finalCode": "fmt.Println(\"Hello, World\");"
+        },
+        {
+            "lessonName": "Opening a New Line: Add Statement Below",
+            "slug": "open-new-line",
+            "techniqueExplanation": "In this lesson, you'll learn how to efficiently insert a new line in Vim using the 'o' command. When you press 'o', Vim opens a new line directly below the current line and automatically enters insert mode, allowing you to start typing immediately. This technique is ideal for quickly adding code without manually repositioning the cursor.",
+            "codeInstructions": "Edit the initial code by adding a new paragraph element (<p>New statement</p>) directly below the existing <p>Welcome</p> element within the <div> block.",
+            "initialCode": "<div>\n  <p>Welcome</p>\n</div>",
+            "finalCode": "<div>\n  <p>Welcome</p>\n  <p>New statement</p>\n</div>"
+        },
+        {
+            "lessonName": "Line Navigation: Wrapping html tags",
+            "slug": "wrap-tags",
+            "techniqueExplanation": "This lesson demonstrates how to use vim’s navigation commands to quickly edit a line. The '0' command moves the cursor to the beginning of the line so you can remove unwanted indentation, and the '$' command jumps to the end of the line, where you can insert missing characters like the '-' operator. Use these techniques to efficiently navigate between the start and end of the line.",
+            "codeInstructions": "Add a <h1> tag for the title and a <p> tag for the paragraph. Then new lines should look like <h1>Title!</h1> and <p>Paragraph!</p>",
+            "initialCode": "<div>\n    Title!\n    Paragraph!\n</div>",
+            "finalCode": "<div>\n    <h1>Title!</h1>\n    <p>Paragraph!</p>\n</div>"
+        },
+        {
+            "lessonName": "Deleting a Character: Remove Unwanted Symbol",
+            "slug": "delete-symbol",
+            "techniqueExplanation": "This lesson demonstrates how Vim's 'x' command works to delete the character under the cursor. When you're in normal mode, simply position the cursor on an unwanted character and use the command to remove it. This method is especially useful for fixing minor errors like extra quotes or typos in your code.",
+            "codeInstructions": "Edit the code by removing the extra double quote between 'Sample' and 'image' in the alt attribute.",
+            "initialCode": "<img src=\"image.jpg\" alt=\"Sample' image\">",
+            "finalCode": "<img src=\"image.jpg\" alt=\"Sample image\">"
+        },
+        {
+            "lessonName": "Deleting a Whole Line: Remove Debug Statement",
+            "slug": "delete-debug-line",
+            "techniqueExplanation": "In Vim's Normal mode, you can delete an entire line by positioning your cursor on that line and pressing 'dd'. This command is ideal for quickly removing unwanted code, such as debug statements, making your code cleaner and more efficient. Use this technique when you need to eliminate a line without affecting the rest of your file.",
+            "codeInstructions": "Edit the code by removing the line that contains the debug print statement so that only the production code remains.",
+            "initialCode": "console.log(\"Debug: Value is\", value);\nconsole.log(\"Production code starts here\");",
+            "finalCode": "console.log(\"Production code starts here\");"
+        },
+        {
+            "lessonName": "Cut and Paste: Reposition a Function Call",
+            "slug": "cut-paste-function",
+            "techniqueExplanation": "This lesson explains how to use vim commands to reposition lines of code efficiently. In vim, you use 'dd' to cut (delete) an entire line, which removes it from its current location, and 'p' to paste it after the cursor. This technique is ideal for reorganizing your code by moving function calls or statements to better suit your program's flow, enhancing readability and structure.",
+            "codeInstructions": "Move the debug statement below the risky_operation",
+            "initialCode": "print('debug')\nrisky_operation()",
+            "finalCode": "risky_operation()\nprint('debug')"
+        },
+        {
+            "lessonName": "Yank and Paste: Duplicate a Configuration Line",
+            "slug": "duplicate-config-line",
+            "techniqueExplanation": "Vim lets you quickly copy an entire line using 'yy' (yank) and then paste it with 'p'. This is especially useful for duplicating configuration entries—such as server settings—so you don't have to retype similar code. Use this technique when you need to replicate a configuration line to create another similar entry in your code.",
+            "codeInstructions": "Update the code by duplicating the existing server configuration object so that the array contains two identical server entries.",
+            "initialCode": "const servers = [\n  { name: 'Production Server', host: '192.168.1.100' },\n];",
+            "finalCode": "const servers = [\n  { name: 'Production Server', host: '192.168.1.100' },\n  { name: 'Production Server', host: '192.168.1.100' },\n];"
+        }
+    ]
+}

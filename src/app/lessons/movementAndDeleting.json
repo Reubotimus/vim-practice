@@ -1,6 +1,0 @@
-{
-    "name": "movementAndDeleting",
-    "startPosition": 0,
-    "startCode": "           ** Press  x  to delete the character under the cursor. **\n\n  1. Move the cursor to the line below marked --->.\n\n  2. To fix the errors, move the cursor until it is on top of the\n     character to be deleted.\n\n  3. Press the  x  key to delete the unwanted character.\n\n  4. Repeat steps 2 through 4 until the sentence is correct.\n\n---> The ccow jumpedd ovverr thhe mooon.\n\n  5. Now that the line is correct, go on to lesson 1.4.\n\nNOTE: As you go through this tutor, do not try to memorize, learn by usage.",
-    "endCode": "           ** Press  x  to delete the character under the cursor. **\n\n  1. Move the cursor to the line below marked --->.\n\n  2. To fix the errors, move the cursor until it is on top of the\n     character to be deleted.\n\n  3. Press the  x  key to delete the unwanted character.\n\n  4. Repeat steps 2 through 4 until the sentence is correct.\n\n---> The cow jumped over the moon.\n\n  5. Now that the line is correct, go on to lesson 1.4.\n\nNOTE: As you go through this tutor, do not try to memorize, learn by usage."
-}

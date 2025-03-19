@@ -37,7 +37,7 @@ export default function RootLayout({
       signIn: { baseTheme: dark },
     }}>
       <html lang="en">
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <body className={`${geistSans.variable} ${geistMono.variable} antialiased text-[#F8F8F2]`}>
           <header className="flex justify-end items-center p-4 gap-4 h-16 bg-[#282A36]">
             <SignedOut>
               <SignInButton>
