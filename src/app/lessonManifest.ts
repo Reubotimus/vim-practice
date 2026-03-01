@@ -24,14 +24,14 @@ async function loadLesson(slug: string): Promise<Lesson | undefined> {
     return (await getLessonMap()).get(slug);
 }
 
-async function getNextLesson(slug: string): Promise<string> {
+async function getNextLesson(slug: string): Promise<string | null> {
     const lessons = await getLessons();
     for (let i = 0; i < lessons.length - 1; i++) {
         if (lessons[i].slug === slug) {
             return lessons[i + 1].slug;
         }
     }
-    return '/';
+    return null;
 }
 
 export { getLessonMap, loadLesson, getLessons, getNextLesson }

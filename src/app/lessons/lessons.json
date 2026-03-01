@@ -63,6 +63,86 @@
             "codeInstructions": "Update the code by duplicating the existing server configuration object so that the array contains two identical server entries.",
             "initialCode": "const servers = [\n  { name: 'Production Server', host: '192.168.1.100' },\n];",
             "finalCode": "const servers = [\n  { name: 'Production Server', host: '192.168.1.100' },\n  { name: 'Production Server', host: '192.168.1.100' },\n];"
+        },
+        {
+            "lessonName": "Replace Character: Fix a Typo in Keyword",
+            "slug": "replace-char-return",
+            "techniqueExplanation": "The 'r' command in Normal mode replaces exactly one character under the cursor without entering Insert mode. It is ideal for fixing tiny typos quickly while keeping your editing flow fast.",
+            "codeInstructions": "Fix the typo in the keyword by changing 'returb' to 'return' using a single-character replacement.",
+            "initialCode": "function add(x, y) { returb x + y; }",
+            "finalCode": "function add(x, y) { return x + y; }"
+        },
+        {
+            "lessonName": "Change Word: Rename a Misspelled Variable",
+            "slug": "change-word-variable",
+            "techniqueExplanation": "Use 'cw' in Normal mode to change from the cursor to the end of the current word, then type the replacement. This is a fast way to correct misspelled variable names.",
+            "codeInstructions": "Rename the misspelled variable from 'userNmae' to 'userName'.",
+            "initialCode": "const userNmae = \"Ruben\";",
+            "finalCode": "const userName = \"Ruben\";"
+        },
+        {
+            "lessonName": "Delete Word: Remove a Duplicate Token",
+            "slug": "delete-word-duplicate",
+            "techniqueExplanation": "The 'dw' command deletes from the cursor to the start of the next word. It is perfect for removing extra words that accidentally appear in conditions or expressions.",
+            "codeInstructions": "Remove the extra word so the condition is valid.",
+            "initialCode": "if (isReady ready) { start(); }",
+            "finalCode": "if (isReady) { start(); }"
+        },
+        {
+            "lessonName": "Change Inside Quotes: Rewrite a String",
+            "slug": "change-inside-quotes",
+            "techniqueExplanation": "The text object command 'ci\"' changes everything inside double quotes and enters Insert mode. This lets you replace string contents without touching the surrounding quotes.",
+            "codeInstructions": "Replace the text inside the quotes so the message becomes \"Hello world\".",
+            "initialCode": "const message = \"Goodbye world\";",
+            "finalCode": "const message = \"Hello world\";"
+        },
+        {
+            "lessonName": "Change Inside Parentheses: Update Arguments",
+            "slug": "change-inside-parens",
+            "techniqueExplanation": "Use 'ci(' to replace everything inside parentheses while preserving the parentheses themselves. This is useful when rewriting function arguments.",
+            "codeInstructions": "Replace the function arguments so the call becomes sum(total, tax).",
+            "initialCode": "sum(alpha, beta, gamma);",
+            "finalCode": "sum(total, tax);"
+        },
+        {
+            "lessonName": "Find Character and Append: Fix URL Scheme",
+            "slug": "find-char-append-colon",
+            "techniqueExplanation": "Character find motions like 'f' and 't' let you jump directly to punctuation on a line. Combined with append ('a'), they are great for precise inline fixes.",
+            "codeInstructions": "Insert the missing colon so the URL uses \"https://\".",
+            "initialCode": "let url = \"https//example.com\";",
+            "finalCode": "let url = \"https://example.com\";"
+        },
+        {
+            "lessonName": "Repeat Last Change: Camel Case Two Names",
+            "slug": "repeat-change-dot",
+            "techniqueExplanation": "After making one edit, pressing '.' repeats the last change. This is powerful for applying the same transformation to similar lines without retyping the full command.",
+            "codeInstructions": "Convert both variable names to camelCase.",
+            "initialCode": "const first_name = \"Ada\";\nconst last_name = \"Lovelace\";",
+            "finalCode": "const firstName = \"Ada\";\nconst lastName = \"Lovelace\";"
+        },
+        {
+            "lessonName": "Join Lines: Collapse Wrapped Expression",
+            "slug": "join-lines-expression",
+            "techniqueExplanation": "Pressing 'J' in Normal mode joins the current line with the next one, inserting clean spacing. It is useful when code is wrapped across lines and should be compacted.",
+            "codeInstructions": "Join the wrapped expression into one line with proper spacing.",
+            "initialCode": "const title = \"Vim\" +\n  \"Practice\";",
+            "finalCode": "const title = \"Vim\" + \"Practice\";"
+        },
+        {
+            "lessonName": "Search Next Match: Edit the Second Occurrence",
+            "slug": "search-next-occurrence",
+            "techniqueExplanation": "Search with '/' to jump to a match, then use 'n' to move to the next occurrence. This is ideal when you need to edit only a specific repeated instance.",
+            "codeInstructions": "Change only the second color value from 'red' to 'green'.",
+            "initialCode": "const color = 'red';\nconst color = 'red';\nconst color = 'red';",
+            "finalCode": "const color = 'red';\nconst color = 'green';\nconst color = 'red';"
+        },
+        {
+            "lessonName": "Substitute Across File: Bump API Version",
+            "slug": "substitute-api-version",
+            "techniqueExplanation": "The substitute command can replace text efficiently. Using '%s/old/new/g' applies the change globally across the whole file, which is great for version updates.",
+            "codeInstructions": "Update every '/api/v1' path to '/api/v2'.",
+            "initialCode": "const endpoint = '/api/v1/users';\nfetch('/api/v1/users');",
+            "finalCode": "const endpoint = '/api/v2/users';\nfetch('/api/v2/users');"
         }
     ]
 }

@@ -1,7 +1,7 @@
 import { integer, pgTable, varchar, primaryKey } from "drizzle-orm/pg-core";
 export const lessons = pgTable("lessons", {
     id: integer().primaryKey().generatedAlwaysAsIdentity(),
-    name: varchar({ length: 255 }).notNull(),
+    name: varchar({ length: 255 }).notNull().unique(),
 });
 
 export const results = pgTable("results", {

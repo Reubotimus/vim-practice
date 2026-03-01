@@ -3,17 +3,19 @@ import { db } from "./db/db";
 import { lessons } from "./db/schema";
 export async function loadNewLessons() {
     const lessonsArray = await getLessons();
-    const currentLessons = await db.select().from(lessons);
-    const existingLessonNames = new Set(currentLessons.map((l) => l.name));
+    const lessonsToInsert: { name: string }[] = lessonsArray.map((lesson) => ({
+        name: lesson.slug,
+    }));
 
-    // Convert the iterator returned by lessonManifest.values() to an array
-    const lessonsToInsert: { name: string }[] = lessonsArray
-        .map(lesson => lesson.slug)
-        .filter(name => !existingLessonNames.has(name))
-        .map(name => ({ name }));
-
-    if (lessonsToInsert.length > 0) {
-        await db.insert(lessons).values(lessonsToInsert);
+    if (lessonsToInsert.length === 0) {
+        console.log("inserted 0 lessons");
+        return;
     }
-    console.log(`inserted ${lessonsToInsert.length} lessons`);
+
+    const insertedLessons = await db.insert(lessons)
+        .values(lessonsToInsert)
+        .onConflictDoNothing({ target: lessons.name })
+        .returning({ name: lessons.name });
+
+    console.log(`inserted ${insertedLessons.length} lessons`);
 }

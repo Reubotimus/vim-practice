@@ -15,7 +15,7 @@ export default function VimText({
     bestScore,
 }: {
     lesson: Lesson
-    nextLesson: string
+    nextLesson: string | null
     bestScore: number | null
 }): JSX.Element {
     const containerRef = useRef<HTMLDivElement | null>(null)
@@ -132,9 +132,9 @@ export default function VimText({
                 <div className="flex justify-center md:justify-start gap-2 mt-4">
                     <Link
                         className="px-4 py-2 bg-[#6272A4] text-white rounded hover:bg-[#8BE9FD] transition-colors"
-                        href={`/${nextLesson}`}
+                        href={nextLesson ? `/${nextLesson}` : "/"}
                     >
-                        Next
+                        {nextLesson ? "Next" : "Home"}
                     </Link>
                     <button
                         className="px-4 py-2 bg-[#6272A4] text-white rounded hover:bg-[#8BE9FD] transition-colors"

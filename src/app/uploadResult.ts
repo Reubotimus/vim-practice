@@ -8,12 +8,22 @@ export async function uploadResult({ lessonName, score }: { lessonName: string, 
     const { userId } = await auth();
     if (!userId) return;
 
-    const [lesson] = await db
-        .select()
-        .from(lessons)
-        .where(eq(lessons.name, lessonName));
+    if (!Number.isInteger(score) || score < 0) {
+        console.warn(`uploadResult: invalid score "${score}" for lesson "${lessonName}"`);
+        return;
+    }
 
-    if (!lesson) { }
+    const [lesson] = await db
+        .select({ id: lessons.id })
+        .from(lessons)
+        .where(eq(lessons.name, lessonName))
+        .limit(1);
+
+    if (!lesson) {
+        console.warn(`uploadResult: unknown lesson "${lessonName}"`);
+        return;
+    }
+
     await db.insert(results)
         .values({ lessonId: lesson.id, score, userId })
         .onConflictDoUpdate({
